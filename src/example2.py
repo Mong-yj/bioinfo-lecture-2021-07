@@ -43,17 +43,26 @@ with gzip.open(file_name, "rt") as handle: #text mode로 읽음
                 data[base] = 0
             data[base] += 1
 print(data)
-
+'''
 # Biopython
 import gzip
 from Bio import SeqIO
 
 f = "covid19.fasta"
 record = SeqIO.read(f, "fasta")
+print(f"A: {record.seq.count('A')}")
+print(f"C: {record.seq.count('C')}")
+print(f"G: {record.seq.count('G')}")
+print(f"T: {record.seq.count('T')}")
 
 f_gz = "covid19.fasta.gz"
-with gzip.open(f,"rt") as handle:
+with gzip.open(f_gz,"rt") as handle:
     record = SeqIO.read(handle, "fasta")
+
+print(f"A: {record.seq.count('A')}")
+print(f"C: {record.seq.count('C')}")
+print(f"G: {record.seq.count('G')}")
+print(f"T: {record.seq.count('T')}")
 '''
 # 25. string
 Seq1 = "ATGTTATAG"
@@ -109,4 +118,4 @@ for i in l_value:
         d_value[i] = 0
     d_value[i] += 1
 print(d_value)
-
+'''
