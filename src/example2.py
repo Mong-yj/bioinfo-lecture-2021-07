@@ -1,14 +1,15 @@
 #! /usr/bin/env python
-'''
+
 # gzip 파일 읽기 by me
 import gzip
+
 base = ""
-with gzip.open("covid19.fasta.gz",'rb') as f: # binary mode로 읽음
+with gzip.open("covid19.fasta.gz", "rb") as f:  # binary mode로 읽음
     for line in f:
-        if line.decode('utf-8').startswith(">"):
+        if line.decode("utf-8").startswith(">"):
             continue
         else:
-            base += line.decode('utf-8').strip()
+            base += line.decode("utf-8").strip()
 d_result = {}
 for b in base:
     if b not in d_result:
@@ -16,10 +17,10 @@ for b in base:
     d_result[b] += 1
 print(d_result)
 
-# 파일 읽기 
+# 파일 읽기
 file_name = "covid19.fasta"
 data = {}
-with open(file_name,'r') as handle:
+with open(file_name, "r") as handle:
     for line in handle:
         if line.startswith(">"):
             continue
@@ -31,10 +32,11 @@ print(data)
 
 # gzip by 강사님
 import gzip
+
 file_name = "covid19.fasta.gz"
 
 data = {}
-with gzip.open(file_name, "rt") as handle: #text mode로 읽음
+with gzip.open(file_name, "rt") as handle:  # text mode로 읽음
     for line in handle:
         if line.startswith(">"):
             continue
@@ -43,7 +45,7 @@ with gzip.open(file_name, "rt") as handle: #text mode로 읽음
                 data[base] = 0
             data[base] += 1
 print(data)
-'''
+"""
 # Biopython
 import gzip
 from Bio import SeqIO
@@ -63,7 +65,7 @@ print(f"A: {record.seq.count('A')}")
 print(f"C: {record.seq.count('C')}")
 print(f"G: {record.seq.count('G')}")
 print(f"T: {record.seq.count('T')}")
-'''
+
 # 25. string
 Seq1 = "ATGTTATAG"
 for i in range(0,len(Seq1),3):
@@ -118,4 +120,4 @@ for i in l_value:
         d_value[i] = 0
     d_value[i] += 1
 print(d_value)
-'''
+"""
